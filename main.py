@@ -28,7 +28,7 @@ credentials = ee.ServiceAccountCredentials(service_account, key_data=json_object
 ee.Initialize(credentials)
 
 Map = geemap.Map()
-ee.Initialize()
+
 item_id_dict = {
     "psu": "e185caf63fbd452aa7b3d1e6396404a9",
     "ssu": "543d31deb07c4a4ab4ae9d59b429508d",
