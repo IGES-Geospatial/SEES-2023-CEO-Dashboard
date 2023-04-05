@@ -13,6 +13,7 @@ from sklearn.metrics import confusion_matrix
 import seaborn as sns
 from ipyleaflet import Rectangle, LayerGroup
 import folium
+import json
 
 import go_utils
 from go_utils.constants import landcover_protocol
