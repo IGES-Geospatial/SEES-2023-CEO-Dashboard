@@ -18,6 +18,14 @@ import go_utils
 from go_utils.constants import landcover_protocol
 
 st.set_page_config(layout="wide")
+
+# Authorise the app with Earth Engine
+json_object = json.loads(st.secrets["service_json"], strict=False)
+service_account = json_object['client_email']
+json_object = json.dumps(json_object)
+credentials = ee.ServiceAccountCredentials(service_account, key_data=json_object)
+ee.Initialize(credentials)
+
 Map = geemap.Map()
 ee.Initialize()
 item_id_dict = {
