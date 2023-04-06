@@ -6,6 +6,7 @@ folium
 geemap
 ipyleaflet
 matplotlib
+plotly
 numpy
 pandas
 scikit-learn
