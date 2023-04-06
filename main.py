@@ -121,7 +121,7 @@ wc_id_classification_map = {
 }
 
 
-@st.cache(ttl=3600)
+@st.cache(ttl=24*60*60)
 def get_data(data_type):
     gis = GIS()
     item = gis.content.get(itemid=item_id_dict[data_type])
@@ -202,7 +202,7 @@ def haversine(lon1, lat1, lon2, lat2):
     return c * r * 1000  # put into meters
 
 
-@st.cache
+@st.cache(ttl=24*60*60)
 def enrich_ceo_data(df, image):
     ceo_payload = gee_converter(
         df["lat"].to_numpy(),
@@ -386,14 +386,14 @@ def display_latlon_coords(center_lat, center_lon, chip_size):
         st.code(f"{center_lon}")
 
 
-@st.cache
+@st.cache(ttl=24*60*60)
 def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv().encode("utf-8")
 
 
-@st.cache
-def get_lc_data(ttl=3600):
+@st.cache(ttl=24*60*60)
+def get_lc_data():
     return go_utils.get_api_data(landcover_protocol)
 
 
