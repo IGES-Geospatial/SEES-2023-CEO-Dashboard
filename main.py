@@ -18,7 +18,7 @@ import json
 import go_utils
 from go_utils.constants import landcover_protocol
 
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="SEES 2023 CEO Dashboard", layout="wide")
 
 # Authorise the app with Earth Engine
 json_object = json.loads(st.secrets["service_json"], strict=False)
